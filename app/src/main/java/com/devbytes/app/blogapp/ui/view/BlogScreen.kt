@@ -9,13 +9,13 @@ import com.devbytes.app.blogapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BlogFragment : Fragment() {
+class BlogScreen : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.blog_fragment, container, false)
+        return inflater.inflate(R.layout.blog_screen, container, false)
     }
 }
