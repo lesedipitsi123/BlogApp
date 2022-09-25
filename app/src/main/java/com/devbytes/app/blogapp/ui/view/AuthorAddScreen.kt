@@ -9,12 +9,13 @@ import com.devbytes.app.blogapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AuthorFragment : Fragment() {
+class AuthorAddScreen : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.author_fragment, container, false)
+        return inflater.inflate(R.layout.author_add_screen, container, false)
     }
 }

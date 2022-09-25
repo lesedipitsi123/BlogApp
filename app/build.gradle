@@ -9,12 +9,12 @@ plugins {
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.devbytes.app.blogapp"
         minSdk 22
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -37,20 +37,21 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.devbytes.app.blogapp'
 }
 
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.core:core-splashscreen:1.0.0'
 
     // Jetpack
     implementation "androidx.concurrent:concurrent-futures-ktx:1.1.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
 
     // Google
     implementation 'com.google.android.material:material:1.6.1'
@@ -68,13 +69,6 @@ dependencies {
     implementation "androidx.room:room-ktx:2.4.3"
     implementation "androidx.room:room-paging:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
-
-    // Firebase
-    implementation platform('com.google.firebase:firebase-bom:29.3.1')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.google.firebase:firebase-firestore-ktx'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
     // Test
     testImplementation 'junit:junit:4.13.2'
