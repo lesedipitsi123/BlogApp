@@ -14,5 +14,5 @@
         android:layout_height="?attr/actionBarSize"
         app:layout_collapseMode="pin"
         app:title="Title"
-        app:layout_scrollFlags="scroll|snap|enterAlways" />
+        app:layout_scrollFlags="noScroll|enterAlways" />
 </com.google.android.material.appbar.AppBarLayout>

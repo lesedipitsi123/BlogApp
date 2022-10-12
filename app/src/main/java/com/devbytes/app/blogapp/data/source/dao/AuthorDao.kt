@@ -14,11 +14,11 @@ interface AuthorDao {
 
     @Transaction
     @Query("SELECT * FROM author_table")
-    fun getAuthorsWithBlogs(): List<AuthorWithBlogs>
+    suspend fun getAuthorsWithBlogs(): List<AuthorWithBlogs>
 
     @Transaction
     @Query("SELECT * FROM author_table WHERE id = :authorId")
-    fun getAuthorWithBlogs(authorId: Int): AuthorWithBlogs
+    suspend fun getAuthorWithBlogs(authorId: Int): AuthorWithBlogs
 
     @Query("SELECT EXISTS(SELECT * FROM author_table)")
     suspend fun hasRecords(): Boolean

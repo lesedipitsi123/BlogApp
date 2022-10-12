@@ -37,8 +37,8 @@ class AuthorScreen : Fragment() {
     private fun initializeComponents() {
         with(binding) {
             appbarLayout.toolbar.title = getString(R.string.lbl_toolbar_authors)
-            viewModel.getAuthorUiState()
-            lifecycleScope.launchWhenStarted {
+            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                viewModel.getAuthorUiState()
                 viewModel.authorUiStateFlow.collect { uiState ->
                     if (uiState.hasAuthors) {
                         authorAdapter.submitList(uiState.authors)

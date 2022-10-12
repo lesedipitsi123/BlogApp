@@ -35,8 +35,8 @@ class BlogScreen : Fragment() {
 
     private fun initializeComponents() {
         with(binding) {
-            blogViewModel.getBlogUiState()
-            lifecycleScope.launchWhenStarted {
+            viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                blogViewModel.getBlogUiState()
                 blogViewModel.blogUiStateFlow.collect { uiState ->
                     if (uiState.hasBlogs) {
                         emptyBlog.root.visibility = View.GONE
