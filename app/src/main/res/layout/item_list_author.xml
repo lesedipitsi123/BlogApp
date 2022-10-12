@@ -16,46 +16,34 @@
             android:id="@+id/image_author"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
+            android:background="?colorOnSurfaceVariant"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/ShapeAppearance.App.LargeComponent"
-            tools:src="@tools:sample/avatars" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_edit"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:backgroundTint="?colorSurface"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:iconGravity="textStart"
-            app:icon="@drawable/ic_edit_24px"
-            app:layout_constraintEnd_toEndOf="@id/image_author"
-            app:layout_constraintTop_toTopOf="@id/image_author" />
+            tools:src="@drawable/drawable_woman_doing_dumbbell_exercise" />
 
         <TextView
             android:id="@+id/text_author_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
-            android:text="Blog title"
+            android:text="Author name"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/text_blogs_count"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_edit"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_author" />
+            app:layout_constraintTop_toBottomOf="@id/image_author"
+            app:layout_constraintWidth_max="wrap" />
 
         <TextView
             android:id="@+id/text_blogs_count"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -65,14 +53,25 @@
             android:lines="1"
             android:text="12 blogs"
             android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
-            android:textColor="#CCCCCC"
+            android:textColor="@color/text_color_secondary"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_edit"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_author_name"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_max="wrap" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_edit"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:contentDescription="@string/app_name"
+            app:icon="@drawable/ic_overflow_24px"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

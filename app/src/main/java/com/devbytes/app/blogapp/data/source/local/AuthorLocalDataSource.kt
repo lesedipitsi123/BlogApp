@@ -8,11 +8,19 @@ import javax.inject.Inject
 class AuthorLocalDataSource @Inject constructor(
     private val dao: AuthorDao
 ) : AuthorDataSource {
+    override suspend fun get() = dao.get()
+
     override suspend fun get(id: Int) = dao.get(id)
+
+    override suspend fun getAuthorsWithBlogs() = dao.getAuthorsWithBlogs()
+
+    override suspend fun getAuthorWithBlogs(authorId: Int) = dao.getAuthorWithBlogs(authorId)
 
     override suspend fun create(author: Author) = dao.create(author)
 
     override suspend fun update(author: Author) = dao.update(author)
 
     override suspend fun delete(author: Author) = dao.delete(author)
+
+    override suspend fun hasRecords() = dao.hasRecords()
 }

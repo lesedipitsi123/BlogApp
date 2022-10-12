@@ -3,7 +3,7 @@ package com.devbytes.app.blogapp.data.source.interfaces
 import com.devbytes.app.blogapp.data.model.Author
 import com.devbytes.app.blogapp.data.model.AuthorWithBlogs
 
-interface AuthorDataSource {
+interface AuthorRepository {
     suspend fun get(): List<Author>
     suspend fun get(id: Int) : Author
     suspend fun getAuthorsWithBlogs(): List<AuthorWithBlogs>

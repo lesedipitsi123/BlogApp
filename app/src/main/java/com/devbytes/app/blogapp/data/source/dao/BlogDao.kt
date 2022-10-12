@@ -11,8 +11,14 @@ interface BlogDao {
     @Query("SELECT * FROM blog_table ORDER BY title DESC")
     suspend fun get(): List<Blog>
 
+    @Query("SELECT EXISTS(SELECT * FROM blog_table)")
+    suspend fun hasRecords(): Boolean
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun create(blogs: List<Blog>)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun create(blog: Blog)
 
     @Update
     suspend fun update(blog: Blog)

@@ -5,12 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "blog_table")
 data class Blog(
-    var authorId: Int,
-    var title: String,
-    var description: String
-) {
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-
-    constructor() : this(0, "", "")
-}
+    val id: Int,
+    val authorId: Int,
+    val title: String,
+    val description: String
+)

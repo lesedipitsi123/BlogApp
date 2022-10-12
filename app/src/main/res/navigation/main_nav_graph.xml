@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/author_screen"
+    android:id="@+id/main_nav_graph">
+
+    <fragment
+        android:id="@+id/author_screen"
+        android:name="com.devbytes.app.blogapp.ui.view.AuthorScreen"
+        android:label="Author"
+        tools:layout="@layout/author_screen">
+        <action
+            android:id="@+id/action_to_add_author"
+            app:destination="@id/author_add_screen" />
+        <action
+            android:id="@+id/action_to_blogs"
+            app:destination="@id/blog_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/author_add_screen"
+        android:name="com.devbytes.app.blogapp.ui.view.AuthorAddScreen"
+        android:label="Author Add"
+        tools:layout="@layout/author_add_screen" />
+
+    <fragment
+        android:id="@+id/blog_screen"
+        android:name="com.devbytes.app.blogapp.ui.view.BlogScreen"
+        android:label="Blog"
+        tools:layout="@layout/blog_screen">
+        <action
+            android:id="@+id/action_to_add_blog"
+            app:destination="@id/blog_add_screen" />
+
+        <action
+            android:id="@+id/action_to_author"
+            app:destination="@id/author_screen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/blog_add_screen"
+        android:name="com.devbytes.app.blogapp.ui.view.BlogAddScreen"
+        android:label="Blog Add"
+        tools:layout="@layout/blog_add_screen" />
+</navigation>

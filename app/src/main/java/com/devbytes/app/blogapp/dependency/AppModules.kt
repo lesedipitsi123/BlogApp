@@ -9,9 +9,9 @@ import com.devbytes.app.blogapp.data.source.interfaces.AuthorDataSource
 import com.devbytes.app.blogapp.data.source.interfaces.BlogDataSource
 import com.devbytes.app.blogapp.data.source.local.AuthorLocalDataSource
 import com.devbytes.app.blogapp.data.source.local.BlogLocalDataSource
-import com.devbytes.app.blogapp.data.source.repository.AuthorRepository
+import com.devbytes.app.blogapp.data.source.interfaces.AuthorRepository
 import com.devbytes.app.blogapp.data.source.repository.AuthorRepositoryImpl
-import com.devbytes.app.blogapp.data.source.repository.BlogRepository
+import com.devbytes.app.blogapp.data.source.interfaces.BlogRepository
 import com.devbytes.app.blogapp.data.source.repository.BlogRepositoryImpl
 import com.devbytes.app.blogapp.dependency.annotation.LocalDataSource
 import com.devbytes.app.blogapp.util.Constants.DATABASE_NAME
