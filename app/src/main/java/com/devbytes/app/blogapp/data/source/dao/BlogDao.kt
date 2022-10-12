@@ -17,6 +17,9 @@ interface BlogDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun create(blogs: List<Blog>)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun create(blog: Blog)
+
     @Update
     suspend fun update(blog: Blog)
 
