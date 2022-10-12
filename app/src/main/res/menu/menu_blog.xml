@@ -4,6 +4,6 @@
     <item
         android:id="@+id/authors"
         app:showAsAction="always"
-        android:icon="@drawable/ic_authors_24px"
+        android:icon="@drawable/ic_authors"
         android:title="Authors" />
 </menu>
