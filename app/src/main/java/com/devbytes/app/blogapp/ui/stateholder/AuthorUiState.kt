@@ -1,4 +1,6 @@
 package com.devbytes.app.blogapp.ui.stateholder
 
-class AuthorUiState {
-}
+data class AuthorUiState(
+    val hasAuthors: Boolean = false,
+    val authors: List<AuthorItemUiState> = listOf()
+)
