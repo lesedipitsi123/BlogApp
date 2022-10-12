@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/blog_screen"
+    app:startDestination="@id/author_screen"
     android:id="@+id/main_nav_graph">
 
     <fragment
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_to_add_author"
             app:destination="@id/author_add_screen" />
+        <action
+            android:id="@+id/action_to_blogs"
+            app:destination="@id/blog_screen" />
     </fragment>
 
     <fragment
