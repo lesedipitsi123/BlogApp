@@ -11,18 +11,9 @@
         android:label="Author"
         tools:layout="@layout/author_screen">
         <action
-            android:id="@+id/action_to_add_author"
-            app:destination="@id/author_add_screen" />
-        <action
             android:id="@+id/action_to_blogs"
             app:destination="@id/blog_screen" />
     </fragment>
-
-    <fragment
-        android:id="@+id/author_add_screen"
-        android:name="com.devbytes.app.blogapp.ui.view.AuthorAddScreen"
-        android:label="Author Add"
-        tools:layout="@layout/author_add_screen" />
 
     <fragment
         android:id="@+id/blog_screen"
@@ -36,6 +27,10 @@
         <action
             android:id="@+id/action_to_author"
             app:destination="@id/author_screen" />
+
+        <action
+            android:id="@+id/action_to_blog_view"
+            app:destination="@id/blog_view_screen" />
     </fragment>
 
     <fragment
@@ -43,4 +38,10 @@
         android:name="com.devbytes.app.blogapp.ui.view.BlogAddScreen"
         android:label="Blog Add"
         tools:layout="@layout/blog_add_screen" />
+
+    <fragment
+        android:id="@+id/blog_view_screen"
+        android:name="com.devbytes.app.blogapp.ui.view.BlogViewScreen"
+        android:label="Blog View"
+        tools:layout="@layout/blog_view_screen" />
 </navigation>
