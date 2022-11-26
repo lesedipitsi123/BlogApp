@@ -14,6 +14,9 @@ class BlogRepositoryImpl @Inject constructor(
     override suspend fun get() = dataSource.get()
 
     override suspend fun get(id: Int) = dataSource.get(id)
+
+    override suspend fun getByAuthorId(authorId: Int) = dataSource.getByAuthorId(authorId)
+
     override suspend fun create(blog: Blog) = dataSource.create(blog)
 
     override suspend fun create(blogs: List<Blog>) = dataSource.create(blogs)

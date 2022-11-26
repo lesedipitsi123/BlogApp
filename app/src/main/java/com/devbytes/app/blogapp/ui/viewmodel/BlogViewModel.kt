@@ -7,7 +7,9 @@ import com.devbytes.app.blogapp.data.model.Blog
 import com.devbytes.app.blogapp.data.source.interfaces.AuthorRepository
 import com.devbytes.app.blogapp.data.source.interfaces.BlogRepository
 import com.devbytes.app.blogapp.ui.stateholder.BlogAddUiState
+import com.devbytes.app.blogapp.ui.stateholder.BlogItemUiState
 import com.devbytes.app.blogapp.ui.stateholder.BlogUiState
+import com.devbytes.app.blogapp.util.toBlogItemUiState
 import com.devbytes.app.blogapp.util.toBlogUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,23 +25,26 @@ class BlogViewModel
     private val authorRepository: AuthorRepository,
 ) : ViewModel() {
     private val _blogUiStateFlow = MutableStateFlow(BlogUiState())
+    private val _blogItemUiStateFlow = MutableStateFlow(BlogItemUiState())
     private val _blogAddUiStateFlow = MutableStateFlow(BlogAddUiState())
     val blogUiStateFlow get() = _blogUiStateFlow.asStateFlow()
     val blogAddUiState get() = _blogAddUiStateFlow.asStateFlow()
+    val blogItemUiStateFlow get() = _blogItemUiStateFlow.asStateFlow()
 
     fun getBlogAddData() = viewModelScope.launch {
         val authors = authorRepository.get()
         _blogAddUiStateFlow.update { it.copy(authors = authors.map { it.name }) }
     }
 
-    fun getBlogUiState() = viewModelScope.launch {
-        val blogs = repository.get()
-        val hasBlogs = repository.hasRecords()
+    fun getBlogUiState(authorId: Int) = viewModelScope.launch {
+        val blogs = repository.getByAuthorId(authorId)
+        val hasBlogs = blogs.isNotEmpty()
         _blogUiStateFlow.emit(blogs.toBlogUiState(hasBlogs, getRandomDrawable()))
     }
 
     fun getBlogItem(id: Int) = viewModelScope.launch {
-        repository.get(id)
+        val blog = repository.get(id)
+        _blogItemUiStateFlow.emit(blog.toBlogItemUiState(getRandomDrawable()))
     }
 
     fun addNewBlog(blog: Blog) = viewModelScope.launch {

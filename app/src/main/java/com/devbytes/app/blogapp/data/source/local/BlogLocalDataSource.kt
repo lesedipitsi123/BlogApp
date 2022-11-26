@@ -12,6 +12,8 @@ class BlogLocalDataSource @Inject constructor(
 
     override suspend fun get(id: Int) = dao.get(id)
 
+    override suspend fun getByAuthorId(authorId: Int) = dao.getByAuthorId(authorId)
+
     override suspend fun create(blog: Blog) = dao.create(blog)
 
     override suspend fun create(blogs: List<Blog>) = dao.create(blogs)
