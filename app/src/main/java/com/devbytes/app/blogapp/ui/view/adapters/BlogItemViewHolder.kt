@@ -5,12 +5,14 @@ import com.devbytes.app.blogapp.databinding.ItemListBlogBinding
 import com.devbytes.app.blogapp.ui.stateholder.BlogItemUiState
 
 class BlogItemViewHolder(
-    private val binding: ItemListBlogBinding
+    private val binding: ItemListBlogBinding,
+    private val itemClickListener: (position : Int) -> Unit
 ) : ViewHolder(binding.root) {
 
     init {
-        binding.btnEdit.setOnClickListener {
-
+        binding.btnEdit.setOnClickListener { }
+        binding.root.setOnClickListener {
+            itemClickListener(adapterPosition)
         }
     }
 

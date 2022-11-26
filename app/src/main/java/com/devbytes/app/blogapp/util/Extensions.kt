@@ -16,7 +16,7 @@ fun List<Blog>.toBlogUiState(hasBlogs: Boolean, @DrawableRes image: Int) : BlogU
     return BlogUiState(hasBlogs = hasBlogs, blogItems = this.map { it.toBlogItemUiState(image) })
 }
 
-private fun Blog.toBlogItemUiState(@DrawableRes image: Int) : BlogItemUiState {
+fun Blog.toBlogItemUiState(@DrawableRes image: Int) : BlogItemUiState {
     return BlogItemUiState(
         id = this.id,
         imageRes = image,
@@ -27,6 +27,7 @@ private fun Blog.toBlogItemUiState(@DrawableRes image: Int) : BlogItemUiState {
 
 private fun AuthorWithBlogs.toAuthorItemUiState(@DrawableRes image: Int): AuthorItemUiState {
     return AuthorItemUiState(
+        id = this.author.id,
         imageRes = image,
         authorName = this.author.name,
         blogsCount =  this.blogs.size

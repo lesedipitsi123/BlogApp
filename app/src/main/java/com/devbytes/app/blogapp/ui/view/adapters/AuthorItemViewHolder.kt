@@ -8,12 +8,16 @@ import com.devbytes.app.blogapp.ui.stateholder.AuthorItemUiState
 
 class AuthorItemViewHolder(
     private val context: Context,
-    private val binding: ItemListAuthorBinding
+    private val binding: ItemListAuthorBinding,
+    private val itemClickListener: (position : Int) -> Unit
 ) : ViewHolder(binding.root) {
 
     init {
         binding.btnEdit.setOnClickListener {
+        }
 
+        binding.root.setOnClickListener {
+            itemClickListener(adapterPosition)
         }
     }
 

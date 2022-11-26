@@ -13,10 +13,18 @@ class BlogItemListAdapter : ListAdapter<BlogItemUiState, BlogItemViewHolder>(Blo
         hasStableIds()
     }
 
+    private var itemClickListener: ((item: BlogItemUiState) -> Unit)? = null
+
+    fun setItemClickListener(listener: (item: BlogItemUiState) -> Unit) {
+        itemClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogItemViewHolder {
         return BlogItemViewHolder(
             ItemListBlogBinding.inflate(LayoutInflater.from(parent.context),parent, false )
-        )
+        ) { position ->
+            itemClickListener?.invoke(getItem(position))
+        }
     }
 
     override fun onBindViewHolder(holder: BlogItemViewHolder, position: Int) {

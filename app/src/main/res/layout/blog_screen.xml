@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
     tools:context=".ui.view.BlogScreen">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="2dp"
-        app:expanded="true"
-        app:liftOnScroll="true">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_collapseMode="pin"
-            app:menu="@menu/menu_blog"
-            app:title="Title"
-            app:layout_scrollFlags="scroll|snap|enterAlways" />
-    </com.google.android.material.appbar.AppBarLayout>
+    <include
+        android:id="@+id/appbar_layout"
+        layout="@layout/appbar_content_with_close_button" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -32,6 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_blogs"
                 android:layout_width="match_parent"
@@ -53,10 +41,11 @@
         android:id="@+id/btn_add_blog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="?attr/floatingActionButtonSurfaceStyle"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        app:icon="@drawable/ic_add_24px"
-        android:text="Blog" />
+        android:text="Blog"
+        app:icon="@drawable/ic_add_24px" />
 
     <include
         android:id="@+id/empty_blog"
