@@ -29,7 +29,27 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">false</item>
+        <item name="android:navigationBarColor">?android:colorBackground</item>
         <!-- Customize your theme here. -->
+        <item name="blogToolbarWithCloseButtonStyle">@style/Widget.BlogApp.Toolbar.WithCloseButton</item>
+    </style>
+    <style name="Widget.BlogApp.Toolbar" parent="Widget.Material3.Toolbar.OnSurface" />
+
+    <style name="Widget.BlogApp.Toolbar.WithCloseButton">
+        <item name="navigationContentDescription">@string/lbl_toolbar</item>
+        <item name="navigationIcon">@drawable/ic_back_24px</item>
+    </style>
+
+    <style name="Theme.BottomSheetDialog" parent="ThemeOverlay.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/Widget.BottomSheetStyle</item>
+    </style>
+
+    <style name="Widget.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="backgroundTint">?android:colorBackground</item>
     </style>
 </resources>
