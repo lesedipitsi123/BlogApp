@@ -1,5 +1,5 @@
 # :green_book: Blog App
-Simple blog android app intended to demonstrate Material 3 Design principles
+Simple blog android app intended to demonstrate Material Design principles
 
 ## What I learned
 * Clean MVVM architecture
@@ -8,13 +8,12 @@ Simple blog android app intended to demonstrate Material 3 Design principles
 
 ## Screenshots
 <div style="display:flex;" >
-<img  src="screenshots/sc1.png" width="25%" >
-<img style="margin-left:10px;" src="screenshots/sc2.png" width="25%" >
-<img style="margin-left:10px;" src="screenshots/sc3.png" width="25%" >
-<img style="margin-left:10px;" src="screenshots/sc4.png" width="25%" >
-<img style="margin-left:10px;" src="screenshots/sc5.png" width="25%" >
+<img  src="screenshots/sc2.png" width="25%" >
 <img style="margin-left:10px;" src="screenshots/sc6.png" width="25%" >
 <img style="margin-left:10px;" src="screenshots/sc7.png" width="25%" >
+<img style="margin-left:10px;" src="screenshots/sc8.png" width="25%" >
+<img style="margin-left:10px;" src="screenshots/sc9.png" width="25%" >
+<img style="margin-left:10px;" src="screenshots/sc10.png" width="25%" >
 </div>
 
 ## Usage
