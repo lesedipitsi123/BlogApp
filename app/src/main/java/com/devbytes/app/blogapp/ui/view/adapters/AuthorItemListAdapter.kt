@@ -12,11 +12,19 @@ class AuthorItemListAdapter : ListAdapter<AuthorItemUiState, AuthorItemViewHolde
         hasStableIds()
     }
 
+    private var itemClickListener: ((item: AuthorItemUiState) -> Unit)? = null
+
+    fun setItemClickListener(listener: (item: AuthorItemUiState) -> Unit) {
+        itemClickListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AuthorItemViewHolder {
         return AuthorItemViewHolder(
             parent.context,
             ItemListAuthorBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        ) { position ->
+            itemClickListener?.invoke(getItem(position))
+        }
     }
 
     override fun onBindViewHolder(holder: AuthorItemViewHolder, position: Int) {

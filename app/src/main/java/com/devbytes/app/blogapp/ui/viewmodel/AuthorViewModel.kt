@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.devbytes.app.blogapp.R
 import com.devbytes.app.blogapp.data.model.Author
 import com.devbytes.app.blogapp.data.source.interfaces.AuthorRepository
-import com.devbytes.app.blogapp.ui.stateholder.AuthorAddUiState
 import com.devbytes.app.blogapp.ui.stateholder.AuthorUiState
 import com.devbytes.app.blogapp.util.toAuthorUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,18 +18,25 @@ class AuthorViewModel
 @Inject constructor(
     private val repository: AuthorRepository
 ) : ViewModel() {
-    private val _authorAddUiState = MutableStateFlow(AuthorAddUiState())
+    private val _authorName = MutableStateFlow("")
     private val _authorUiStateFlow = MutableStateFlow(AuthorUiState())
     val authorUiStateFlow get() = _authorUiStateFlow.asStateFlow()
+    val authorName get() = _authorName.asStateFlow()
 
-    fun getAuthorUiState() = viewModelScope.launch {
+    fun getAuthorsUiState() = viewModelScope.launch {
         val authorsWithBlogs = repository.getAuthorsWithBlogs()
         val hasAuthors = repository.hasRecords()
         _authorUiStateFlow.emit(authorsWithBlogs.toAuthorUiState(hasAuthors, getRandomDrawable()))
     }
 
+    fun getAuthorName(authorId: Int) = viewModelScope.launch {
+        val author = repository.get(authorId)
+        _authorName.emit(author.name)
+    }
+
     fun addNewAuthor(name: String) = viewModelScope.launch {
         repository.create(Author(name = name))
+        getAuthorsUiState()
     }
 
     private fun getRandomDrawable(): Int {
